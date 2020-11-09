@@ -1,8 +1,8 @@
 Particle[] particles = new Particle[20];
 
 // public void settings() {
-//  size(1000, 400);
-}
+//   size(1000, 400);
+// }
 void setup() {
   size(1000,400);
   background(0);
