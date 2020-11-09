@@ -1,9 +1,10 @@
 Particle[] particles = new Particle[20];
 
-public void settings() {
-  size(1000, 400);
+// public void settings() {
+//  size(1000, 400);
 }
 void setup() {
+  size(1000,400);
   background(0);
   particles[0] = new OddballParticle();
   for(int i = 1; i < 20; i++) {
