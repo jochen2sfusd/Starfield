@@ -45,10 +45,10 @@ class OddballParticle extends Particle {
   }
   void move() {
     if(y < mouseY) {
-      y += 2;
+      y += 2.5;
     }
     if(y > mouseY) {
-      y -= 2;
+      y -= 2.5;
     }
   }
   void show() {
