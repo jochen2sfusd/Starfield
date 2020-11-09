@@ -1,10 +1,12 @@
-Particle[] particles = new Particle[10];
+Particle[] particles = new Particle[20];
 
+public void settings() {
+  size(1000, 400);
+}
 void setup() {
-  size(700, 400);
   background(0);
   particles[0] = new OddballParticle();
-  for(int i = 1; i < 10; i++) {
+  for(int i = 1; i < 20; i++) {
     particles[i] = new Particle();
   }
 }
@@ -19,13 +21,16 @@ class Particle {
   int col;
   double x, y, spd;
   Particle() {
-    x = (int)(Math.random()*650+50);
-    y = (int)(Math.random()*350+50);
-    spd = (int)(Math.random()*5);
+    x = (int)(Math.random()*400+600);
+    y = (int)(Math.random()*400);
+    spd = (int)(Math.random()*3+2);
     col = 200;
   }
   void move() {
     x -= spd;
+    if(x < 10) {
+      x = (int)(Math.random()*400+600);
+    }
   }
   void show() {
     ellipse((float)x, (float)y, (float)20, (float)10);
@@ -33,20 +38,20 @@ class Particle {
 }
 class OddballParticle extends Particle {
   OddballParticle() {
-    x = 25;
+    x = 100;
     y = 200;
     fill(col);
   }
   void move() {
-    if(y < mouseX) {
-      y += 5;
+    if(y < mouseY) {
+      y += 2;
     }
-    else if(y>mouseX) {
-      y -= 5;
+    if(y > mouseY) {
+      y -= 2;
     }
-    spd = 0;
   }
   void show() {
+    ellipse((float)x, (float)y, (float)40, (float)40);
     fill(col);
   }
 }
